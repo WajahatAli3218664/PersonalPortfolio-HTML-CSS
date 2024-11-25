@@ -48,19 +48,22 @@ body {
 p {
     font-size: 1.6rem;
 }
-
+/* Navbar Styles */
 .nav {
     position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 10%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Adjusts for exact centering */
     width: 38rem;
     padding: 1rem 0;
     background: var(--nav-bg-color);
     border-radius: 5rem;
     z-index: 100;
+    visibility: visible; /* Default visibility */
     animation: animate-nav 1s ease-in-out backwards;
     animation-delay: 4s;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+    opacity: 1; /* To smoothly hide/show the navbar */
 }
 
 @keyframes animate-nav {
@@ -68,13 +71,19 @@ p {
         visibility: hidden;
         opacity: 0;
     }
-
     100% {
         visibility: visible;
         opacity: 1;
     }
 }
 
+/* When hovering over headings, hide navbar */
+.heading:hover ~ .nav {
+    visibility: hidden;
+    opacity: 0; /* Smooth hiding */
+}
+
+/* Navbar List Styles */
 .nav .nav-list {
     display: flex;
     justify-content: space-evenly;
@@ -91,6 +100,19 @@ p {
 .nav-list li.active {
     color: var(--main-color);
 }
+
+/* Headings Styling */
+.heading {
+    font-size: 3rem;
+    margin: 3rem 0;
+}
+
+
+
+
+
+
+
 
 .tooltip {
     position: absolute;
